@@ -1,0 +1,1 @@
+This app access news about a particular topics and sends it by email.  
