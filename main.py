@@ -11,9 +11,13 @@ content = request.json()
 
 # Access the article titles and description
 body = ""
-for article in content["articles"]:
+for article in content["articles"][:5]:
     if article["title"] is not None:
-        body = body + article["title"] + "\n" + str(article["description"]) + 2*"\n"
+        body = ("Subject: Today's tech news" + "\n"
+                + (body + article["title"]
+                + "\n" + article["description"]
+                + "\n" + article["url"] + 2*"\n"))
+
 
 body = body.encode("utf-8")
 send_email(message=body)
