@@ -2,7 +2,6 @@ import requests
 import creds
 from send_email import send_email
 
-
 # Render content from webpage by making a request
 request = requests.get(creds.url)
 
@@ -17,7 +16,6 @@ for article in content["articles"][:5]:
                 + (body + article["title"]
                 + "\n" + article["description"]
                 + "\n" + article["url"] + 2*"\n"))
-
 
 body = body.encode("utf-8")
 send_email(message=body)
